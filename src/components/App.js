@@ -5,7 +5,7 @@ import {
   Switch
 } from 'react-router-dom';
 import CharacterList from '../components/CharacterList';
-import CharacterDetail from '../components/CharacterDetails';
+import CharacterDetails from '../components/CharacterDetails';
 
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={CharacterList} />
-        <Route path="/character/:id" component={CharacterDetail} />
+        <Route path="/character/:id" component={CharacterDetails} />
       </Switch>
     </Router>
   );

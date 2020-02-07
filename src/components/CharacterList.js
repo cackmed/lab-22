@@ -1,20 +1,26 @@
 import React from 'react';
 import CharacterItem from './CharacterItem';
-import PropTypes from 'prop-types';
+import { useCharacters } from '../hooks/character';
+import { Link } from 'react-router-dom';
 
+const CharacterList = () => {
+  const charactersList = useCharacters();
 
-const CharacterList = (el) => (
-  <>
+  const characterListElements = charactersList.map(character => (
+    <li key={character.id}>
+      <Link to={`/character${character.id}`}>
+        <CharacterItem {...character}/>
+      </Link>
+    </li>
+  ));
+
+  return (
     <ul>
-      <CharacterItem img={el.image} onClick={onClick}/> 
+      {characterListElements}
     </ul>
-  </>
-);
-
-CharacterList.propTypes = {
-  image: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  );
 };
+
 
 export default CharacterList;
 
