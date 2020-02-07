@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 
   
 
-const CharacterItem = ({ img, name }) => (
+const CharacterItem = ({ img, onClick }) => (
   <>
     <li>
-      <img src={img}/>
-      <p>Name: {name}</p>
-
+      <img src={img} onClick={onClick}/>
     </li>
   </>
 );
 
 CharacterItem.propTypes = {
   img: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  onClick: PropTypes.func.isRequired
 };
 
 export default CharacterItem;
