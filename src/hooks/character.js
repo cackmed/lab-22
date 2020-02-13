@@ -12,6 +12,14 @@ export const useCharacters = () => {
   return characters;
 };
 
+export const nextPage = () => {
+  const [characters, setCharacters] = useState([]);
+  const [pageNumber, setPagenumber] = useState(1);
+  setPagenumber(pageNumber + 1);
+  getCharacters(pageNumber)
+    .then(setCharacters);
+};
+
 
 export const useCharacterDetails = (id) => {
   const [character, setCharacter] = useState({

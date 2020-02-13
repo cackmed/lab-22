@@ -1,13 +1,12 @@
 import React from 'react';
 import CharacterItem from './CharacterItem';
-import { useCharacters } from '../hooks/character';
+import { useCharacters, nextPage } from '../hooks/character';
 import { Link } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundry';
 
 
 const CharacterList = () => {
   const charactersList = useCharacters();
-  console.log(charactersList);
   const characterListElements = charactersList.map(character => (
     <li key={character.id}>
       <Link to={`/character/${character.id}`}>
@@ -19,9 +18,13 @@ const CharacterList = () => {
   ));
 
   return (
-    <ul>
-      {characterListElements}
-    </ul>
+    <>
+      <button onClick>Previous Page</button>
+      <button onClick={nextPage}>Next Page</button>
+      <ul>
+        {characterListElements}
+      </ul>
+    </>
   );
 };
 
